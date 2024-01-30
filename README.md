@@ -11,21 +11,24 @@ Some key features that the client requested:
 
 1. The ability to view the dataset in an organized, sensible way.
 
-   Viewing options:
-
    - table view with each field in its own column
-   - card view with each Meteorite on its own card
+   - data sortable by column
 
 2. The ability to search for individual meteorites by Name and/or ID.
 
    - filter and display results as you type
 
 3. The ability to save a list of their favorite meteorites that persists across browser sessions and tabs.
+   
+   - Ran out of time for this section to finish, but there's a favorites list through `/api/v1/favorites/earthling` that gets the dumy data from the database
+   - Has `users` table with one user
+   - Has `medeorite_favorites` with favorites of that user
 
-   - store in a db table such as `favorites` so it can persist across browsers and sessions
+   *With more time:*
+   
+   - Store new `favorites` in the database `medeorite_favorites`
      - Store `id` of the meteorite, `id` of the user
-   - may have a `users` table too to assign favorites to each user
-     - Store `username` as unique identifier
+   - Create a way to signup and store new users
 
 ## Other requirements
 
@@ -44,6 +47,7 @@ Some key features that the client requested:
 
 You should see something like this:
 <img width="405" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/bce91a2e-2f10-44eb-83d5-500a8478266d">
+
 <img width="478" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/7144a6a8-5c91-47d0-8908-f12c4ff6926d">
 
 Note: I added some filler data since I ran out of time for creating the POST request portion of the app.
@@ -82,6 +86,9 @@ Navigate to http://localhost:3000
 If everything is working, you should see something like this:
 <img width="1469" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/1586efe6-657c-48dd-8431-93027e46be1d">
 
+Navigate to the Favorites page and you should see something like this if it's working:
+<img width="1462" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/5120d3f5-7274-430c-a4e2-b62a51f7e185">
+
 
 ## Instructions for build steps and deployment packaging.
 
@@ -93,4 +100,4 @@ Check out their [Next.js deployment documentation](https://nextjs.org/docs/deplo
 
 ## Future:
 
-- sortable by different fields
+- Finish adding a way to submit favorites
