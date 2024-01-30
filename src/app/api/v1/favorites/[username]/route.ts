@@ -27,15 +27,14 @@ export async function GET(request: NextRequest, response: NextResponse) {
 
   try {
     const data = await executeQuery({
-      query: 'SELECT * FROM medeorite_favorites mf join users u on mf.user_id = u.id where u.username = ?',
+      query: 'SELECT mf.medeorite_id FROM medeorite_favorites mf join users u on mf.user_id = u.id where u.username = ?',
       values: [username],
     });
-    console.log(data, username)
-    if (!!data) {
-      
+    if (!!data && data.length > 0) {
+      const dataIds = data.map((item: { medeorite_id: number }) => item.medeorite_id);
       const nasaData = await getData();
-      console.log(nasaData)
-      const filteredData = nasaData.filter((item: MedeoriteType) => Number(item.id) === Number(data.id));
+      const filteredData = nasaData.filter((item: MedeoriteType) => dataIds.includes(Number(item.id)) );
+
       return new NextResponse(
         JSON.stringify(filteredData),
         { status: 200 }
