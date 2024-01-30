@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import { MedeoriteFormattedType } from "@/domain/entities/medeorite";
 
 export default function DataTable({
@@ -19,6 +19,7 @@ export default function DataTable({
             paginationModel: { page: 0, pageSize: 50 },
           },
         }}
+        slots={{ toolbar: GridToolbar }}
         checkboxSelection
       />
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 
 import DataTable from "@/components/DataTable";
 
@@ -12,8 +12,8 @@ import {
 } from "@/domain/entities/medeorite";
 
 const columns: GridColDef[] = [
-  { field: "id", headerName: "ID", width: 70 },
-  { field: "name", headerName: "Name", width: 130 },
+  { field: "id", headerName: "ID", width: 100 },
+  { field: "name", headerName: "Name", width: 200 },
   { field: "nametype", headerName: "Name Type", width: 130 },
   {
     field: "recclass",
@@ -22,7 +22,7 @@ const columns: GridColDef[] = [
   },
   {
     field: "mass",
-    headerName: "Mass in grams",
+    headerName: "Mass (g)",
     type: "number",
     width: 90,
   },
@@ -52,7 +52,7 @@ const columns: GridColDef[] = [
   {
     field: "geolocation",
     headerName: "Geolocation",
-    width: 130,
+    width: 400,
   },
 ];
 
@@ -69,37 +69,39 @@ async function getData() {
   return response.json();
 }
 
+const formattedMedeoriteData = async (
+  setRowsData: React.Dispatch<SetStateAction<MedeoriteFormattedType[]>>
+) => {
+  const data: MedeoriteType[] = await getData();
+  const formattedData: MedeoriteFormattedType[] = [];
+  data.map((item) => {
+    formattedData.push({
+      id: item.id,
+      name: item.name,
+      nametype: item.nametype,
+      recclass: item.recclass,
+      mass: item.mass,
+      fall: item.fall,
+      year: item.year ? new Date(item.year).getFullYear() : undefined,
+      reclat: item.reclat,
+      reclong: item.reclong,
+      geolocation: item.geolocation
+        ? `type: ${item.geolocation.type}, latitude: ${item.geolocation.coordinates[0]}, longitude: ${item.geolocation.coordinates[1]}`
+        : "",
+    });
+  });
+  setRowsData(formattedData);
+};
+
 export default function Home() {
   const [rowsData, setRowsData] = useState<MedeoriteFormattedType[]>([]);
 
-  const formattedMedeoriteData = async () => {
-    const data: MedeoriteType[] = await getData();
-    const formattedData: MedeoriteFormattedType[] = [];
-    data.map((item) => {
-      formattedData.push({
-        id: item.id,
-        name: item.name,
-        nametype: item.nametype,
-        recclass: item.recclass,
-        mass: item.mass,
-        fall: item.fall,
-        year: item.year ? new Date(item.year).getFullYear() : undefined,
-        reclat: item.reclat,
-        reclong: item.reclong,
-        geolocation: item.geolocation
-          ? `type: ${item.geolocation.type}<br>latitude: ${item.geolocation.coordinates[0]}, longitude: ${item.geolocation.coordinates[1]}`
-          : "",
-      });
-    });
-    setRowsData(formattedData);
-  };
-
-  formattedMedeoriteData();
+  rowsData.length > 0 ? rowsData : formattedMedeoriteData(setRowsData);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="max-w-5xl w-full">
-        <h1 className="text-3xl">Earth Meteorite Landings</h1>
+        <h1 className="text-3xl mb-4">Earth Meteorite Landings</h1>
         {rowsData && <DataTable rows={rowsData} columns={columns} />}
       </div>
     </main>
