@@ -10,7 +10,7 @@ export default function DataTable({
   columns: GridColDef[];
 }) {
   return (
-    <div className="w-100">
+    <div className="max-w-100" style={{ height: 800 }}>
       <DataGrid
         rows={rows}
         columns={columns}

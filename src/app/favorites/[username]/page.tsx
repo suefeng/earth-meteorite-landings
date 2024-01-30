@@ -56,7 +56,9 @@ const columns: GridColDef[] = [
 ];
 
 async function getData() {
-  const response = await fetch("https://data.nasa.gov/resource/y77d-th95.json");
+  const response = await fetch(
+    "http://localhost:3000/api/v1/favorites/earthling"
+  );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -92,7 +94,7 @@ const formattedMedeoriteData = async (
   setRowsData(formattedData);
 };
 
-export default function Home() {
+export default function Favorites() {
   const [rowsData, setRowsData] = useState<MedeoriteFormattedType[]>([]);
 
   rowsData.length > 0 ? rowsData : formattedMedeoriteData(setRowsData);
@@ -102,7 +104,7 @@ export default function Home() {
       <Nav links={LINKS} />
       <main className="min-h-screen p-2 md:px-24">
         <div>
-          <h1 className="text-3xl mb-4">Earth Meteorite Landings</h1>
+          <h1 className="text-3xl mb-4">Favorite Earth Meteorite Landings</h1>
           {rowsData && <DataTable rows={rowsData} columns={columns} />}
         </div>
       </main>
