@@ -46,6 +46,7 @@ Some key features that the client requested:
 3. Next import the database `medeorites` to a MySQL client such as TablePlus.
 
 You should see something like this:
+
 <img width="405" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/bce91a2e-2f10-44eb-83d5-500a8478266d">
 
 <img width="478" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/7144a6a8-5c91-47d0-8908-f12c4ff6926d">
