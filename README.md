@@ -36,11 +36,25 @@ Some key features that the client requested:
 
 ## How to run the testing framework locally
 
+### Add the MySQL database and tables
+
+1. Install MySQL if you don't have it on your machine.
+2. Unzip the `medeorites.gz` folder.
+3. Next import the database `medeorites` to a MySQL client such as TablePlus.
+
+You should see something like this:
+<img width="405" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/bce91a2e-2f10-44eb-83d5-500a8478266d">
+<img width="478" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/7144a6a8-5c91-47d0-8908-f12c4ff6926d">
+
+Note: I added some filler data since I ran out of time for creating the POST request portion of the app.
+
+### Install the app
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 It was installed with `npx create-next-app@latest`
 
-This app uses `Node.js 18.17.1`. Make sure you have that first.
+This app uses `Node.js 18.17.1`. Make sure you have that first. I added a `.nvmrc` and `.tool-versions` depending on if you are using NVM or asdf for the Node.js package manager.
 
 Next, run this to install the modules:
 
@@ -48,11 +62,26 @@ Next, run this to install the modules:
 npm install
 ```
 
+Create a `.env` file and add these variables:
+Edit the variable values to what you have set.
+
+```
+MYSQL_USER="root"
+MYSQL_PASSWORD=""
+SOCKET_PATH="/tmp/mysql.sock"
+```
+
 To run the development server:
 
 ```bash
 npm run dev
 ```
+
+Navigate to http://localhost:3000
+
+If everything is working, you should see something like this:
+<img width="1469" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/1586efe6-657c-48dd-8431-93027e46be1d">
+
 
 ## Instructions for build steps and deployment packaging.
 
