@@ -60,7 +60,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 It was installed with `npx create-next-app@latest`
 
-This app uses `Node.js 18.17.1`. Make sure you have that first. I added a `.nvmrc` and `.tool-versions` depending on if you are using NVM or asdf for the Node.js package manager.
+This app uses `Node.js 18.17.1`. Make sure you have that first. I added a `.nvmrc` and `.tool-versions` depending on if you are using NVM or asdf for the Node.js package manager, so it should work automatically if all goes well.
+
+`node --version` should return something like `v18.17.1`.
 
 Next, run this to install the modules:
 
