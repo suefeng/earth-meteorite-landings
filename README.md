@@ -13,10 +13,11 @@ Some key features that the client requested:
 
    - table view with each field in its own column
    - data sortable by column
+   - a way to filter the data
 
 2. The ability to search for individual meteorites by Name and/or ID.
 
-   - filter and display results as you type
+   - searchable and display results as you type
 
 3. The ability to save a list of their favorite meteorites that persists across browser sessions and tabs.
    
@@ -32,10 +33,10 @@ Some key features that the client requested:
 
 ## Other requirements
 
-- Use a modern JS framework (e.g. React or Vue)
-- Consistent look and feel
-- Responsive
-- Uses Material UI
+- Use a modern JS framework (e.g. React or Vue): Uses Next.js with React
+- Consistent look and feel: Uses Tailwind CSS
+- Responsive: could be better with more time, to display the table in more mobile friendly way
+- Uses Material UI: Uses MUI `DataGrid` with `GridToolbar`
 
 ## How to run the testing framework locally
 
@@ -90,15 +91,22 @@ If everything is working, you should see something like this:
 Navigate to the Favorites page and you should see something like this if it's working:
 <img width="1462" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/5120d3f5-7274-430c-a4e2-b62a51f7e185">
 
+In both views you should be able to filter, search, and sort the data.
+
 
 ## Instructions for build steps and deployment packaging.
 
 From the generated version of the Next.js install:
 
-In the future, the easiest way to deploy Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out their [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Future:
+## Future implementations:
 
-- Finish adding a way to submit favorites
+- Add automated tests
+- Finish adding a way to submit and remove favorites
+- Create a user signup system
+- Create user login and session
+- Provide another way to view data other than just in a table
+- More mobile-friendly display
