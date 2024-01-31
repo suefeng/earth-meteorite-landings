@@ -109,4 +109,5 @@ Check out their [Next.js deployment documentation](https://nextjs.org/docs/deplo
 - Create a user signup system
 - Create user login and session
 - Provide another way to view data other than just in a table
+- Improve table display, especially the Geolocation column
 - More mobile-friendly display
