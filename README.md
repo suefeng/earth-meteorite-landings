@@ -15,21 +15,31 @@ Some key features that the client requested:
    - data sortable by column
    - a way to filter the data
 
+   ** UPDATE **
+
+   - added caching for the main page so data doesn't need to be refetched from the API as often.
+
 2. The ability to search for individual meteorites by Name and/or ID.
 
    - searchable and display results as you type
 
 3. The ability to save a list of their favorite meteorites that persists across browser sessions and tabs.
-   
+
    - Ran out of time for this section to finish, but there's a favorites list through `/api/v1/favorites/earthling` that gets the dumy data from the database
    - Has `users` table with one user
-   - Has `medeorite_favorites` with favorites of that user
+   - Has `meteorite_favorites` with favorites of that user
 
-   *With more time:*
-   
-   - Store new `favorites` in the database `medeorite_favorites`
+   _With more time:_
+
+   - Store new `favorites` in the database `meteorite_favorites`
      - Store `id` of the meteorite, `id` of the user
    - Create a way to signup and store new users
+
+   **UPDATE**
+
+   - Creating and deleting favorites works now
+   - Would like a more user friendly way to display favorites in the future like a star or heart and filled in if it's favorited
+   - Updated table naming to correct spelling of "meteorite" wherever "meteorite" was used
 
 ## Other requirements
 
@@ -42,9 +52,10 @@ Some key features that the client requested:
 
 ### Add the MySQL database and tables
 
-1. Install MySQL if you don't have it on your machine.
-2. Unzip the `medeorites.gz` folder.
-3. Next import the database `medeorites` to a MySQL client such as TablePlus.
+1. Install MySQL if you don't have it on your machine ie via `brew install mysql`.
+2. Unzip the `meteorites.gz` folder.
+3. Next import the database `meteorites` to a MySQL client such as TablePlus.
+4. Connect to the database.
 
 You should see something like this:
 
@@ -95,7 +106,6 @@ Navigate to the Favorites page and you should see something like this if it's wo
 
 In both views you should be able to filter, search, and sort the data.
 
-
 ## Instructions for build steps and deployment packaging.
 
 From the generated version of the Next.js install:
@@ -106,10 +116,13 @@ Check out their [Next.js deployment documentation](https://nextjs.org/docs/deplo
 
 ## Future implementations:
 
-- Add automated tests
-- Finish adding a way to submit and remove favorites
-- Create a user signup system
-- Create user login and session
-- Provide another way to view data other than just in a table
-- Improve table display, especially the Geolocation column
-- More mobile-friendly display
+- [ ] Add automated tests
+- [x] Finish adding a way to submit and remove favorites
+- [ ]Create a user signup system
+- [ ]Create user login and session
+- [ ] Provide another way to view data other than just in a table
+- [x] Improve table display, especially the Geolocation column
+- [ ] More mobile-friendly display
+- [ ] Another more visually appealing way to display data such as cards, geolocation on a map with tooltips or info showing when zoomed in more, a graph for representing the number of meteorites per year etc
+- [ ] A better way to handle when the api is down such as refetching, and displaying a message to the user that the data is temporarily unavailable
+- [x] Darkmode enabled
