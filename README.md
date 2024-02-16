@@ -54,14 +54,26 @@ Some key features that the client requested:
 
 1. Install MySQL if you don't have it on your machine ie via `brew install mysql`.
 2. Unzip the `meteorites.gz` folder.
-3. Next import the database `meteorites` to a MySQL client such as TablePlus.
-4. Connect to the database.
+3. Setup and connect to a MySQL client such as TablePlus.
+
+   <img width="653" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/9a91d10c-9be7-4110-ab83-06d1b3aba232">
+   <img width="524" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/ed7dbab6-219e-4930-9a5a-f9ab5d347f12">
+4. Create the database by adding a new one to the connection called `meteorites`
+   
+   <img width="448" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/2b070d9c-e230-4a85-a805-69ce9e42e5a1">
+   
+5. Connect to the database.
+
+   <img width="415" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/71ae73a2-ccef-44e2-b700-741171553751">
+6. Import the gzipped database contents
+
+   <img width="404" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/515fc271-d1aa-45f6-828a-33d805919611">
 
 You should see something like this:
 
-<img width="405" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/bce91a2e-2f10-44eb-83d5-500a8478266d">
+<img width="769" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/b81fbfec-ead2-4f2a-9b07-4030d32e5356">
 
-<img width="478" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/7144a6a8-5c91-47d0-8908-f12c4ff6926d">
+<img width="694" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/f41656ca-98fb-4560-8397-0e2830eea47b">
 
 Note: I added some filler data since I ran out of time for creating the POST request portion of the app.
 
