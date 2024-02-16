@@ -138,8 +138,8 @@ Check out their [Next.js deployment documentation](https://nextjs.org/docs/deplo
 
 - [ ] Add automated tests
 - [x] Finish adding a way to submit and remove favorites
-- [ ]Create a user signup system
-- [ ]Create user login and session
+- [ ] Create a user signup system
+- [ ] Create user login and session
 - [ ] Provide another way to view data other than just in a table
 - [x] Improve table display, especially the Geolocation column
 - [ ] More mobile-friendly display
