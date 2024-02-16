@@ -3,7 +3,7 @@
 --
 -- https://tableplus.com/
 --
--- Database: medeorites
+-- Database: meteorites
 -- Generation Time: 2024-01-30 16:04:13.6400
 -- -------------------------------------------------------------
 
@@ -18,10 +18,10 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-DROP TABLE IF EXISTS `medeorite_favorites`;
-CREATE TABLE `medeorite_favorites` (
+DROP TABLE IF EXISTS `meteorite_favorites`;
+CREATE TABLE `meteorite_favorites` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `medeorite_id` int NOT NULL,
+  `meteorite_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
