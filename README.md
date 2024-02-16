@@ -108,15 +108,23 @@ To run the development server:
 npm run dev
 ```
 
-Navigate to http://localhost:3000
+Navigate to http://localhost:3002
 
 If everything is working, you should see something like this:
-<img width="1469" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/1586efe6-657c-48dd-8431-93027e46be1d">
+
+<img width="1347" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/08617d9e-455d-483b-a9b9-e943689cba71">
 
 Navigate to the Favorites page and you should see something like this if it's working:
-<img width="1462" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/5120d3f5-7274-430c-a4e2-b62a51f7e185">
+
+<img width="1295" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/d7e17b26-9d0b-48f6-bef9-678afd0a8736">
 
 In both views you should be able to filter, search, and sort the data.
+
+<img width="553" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/33af8e44-c998-4f01-a730-6a59d76d6ce6">
+
+<img width="345" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/c551be9c-db1d-4c38-bd0a-223383d35e6b">
+
+
 
 ## Instructions for build steps and deployment packaging.
 
