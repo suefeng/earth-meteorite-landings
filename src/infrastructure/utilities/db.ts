@@ -1,11 +1,11 @@
-const mysql = require('mysql2/promise');
+const mysql = require("mysql2/promise");
 const env = process.env;
 
 const config = {
   db: {
-    host: '127.0.0.1',
+    host: "127.0.0.1",
     port: 3306,
-    database: 'medeorites',
+    database: "meteorites",
     user: env.MYSQL_USER,
     password: env.MYSQL_PASSWORD,
     socketPath: env.SOCKET_PATH,
@@ -28,7 +28,7 @@ export async function executeQuery({
 
     return numResults === 1 ? results[0] : results;
   } catch (err: any) {
-    console.error('catch err: ' + err);
+    console.error("catch err: " + err);
 
     throw err;
   }

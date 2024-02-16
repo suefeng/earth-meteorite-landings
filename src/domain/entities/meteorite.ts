@@ -1,4 +1,4 @@
-export interface MedeoriteType {
+export interface MeteoriteType {
   id: number;
   name: string;
   nametype: string;
@@ -8,10 +8,10 @@ export interface MedeoriteType {
   year?: number;
   reclat: number;
   reclong: number;
-  geolocation: {type: string, coordinates: [number, number]};
-};
+  geolocation: { type: string; coordinates: [number, number] };
+}
 
-export interface MedeoriteFormattedType {
+export interface MeteoriteFormattedType {
   id: number;
   name: string;
   nametype: string;
@@ -22,4 +22,4 @@ export interface MedeoriteFormattedType {
   reclat: number;
   reclong: number;
   geolocation: string;
-};
+}

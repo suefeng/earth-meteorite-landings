@@ -12,8 +12,34 @@ body {
   background-color: rgb(var(--background-rgb));
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 0, 0, 0;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+.MuiDataGrid-main {
+  overflow: visible !important;
+}
+.MuiDataGrid-columnHeaders {
+  top: 2rem;
+}
+.MuiDataGrid-columnHeaders .MuiCheckbox-root {
+  display: none;
+}
+.MuiDataGrid-toolbarContainer {
+  top: 0;
+}
+.MuiDataGrid-columnHeaders,
+.MuiDataGrid-toolbarContainer {
+  position: sticky !important;
+  overflow: visible !important;
+  background-color: rgb(var(--background-rgb)) !important;
+  z-index: 10;
 }
