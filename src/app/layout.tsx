@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "ol/ol.css";
 import { TITLE, LINKS } from "@/infrastructure/consts";
 import Nav from "@/components/Nav";
 

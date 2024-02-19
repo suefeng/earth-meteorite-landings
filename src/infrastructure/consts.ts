@@ -2,6 +2,8 @@ import { GridColDef } from "@mui/x-data-grid";
 
 export const LINKS = [
   { name: "Home", href: "/" },
+  { name: "Geolocations", href: "/geolocations" },
+  { name: "Year over year", href: "/year-over-year" },
   { name: "Favorites", href: "/favorites/earthling" },
 ];
 export const TITLE = "Earth Meteorite Landings";

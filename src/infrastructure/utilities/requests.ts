@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, cache } from "react";
 import { FAVORITES_MUTATION_URL } from "../consts";
 import { MeteoriteType } from "@/domain/entities/meteorite";
+import _ from "lodash";
 
 export const getCachedData = cache(
   async (url: string, options?: RequestInit) => {
@@ -39,10 +40,30 @@ export const formattedData = (data: MeteoriteType[]) => {
     year: item.year ? new Date(item.year).getFullYear() : undefined,
     reclat: item.reclat,
     reclong: item.reclong,
-    geolocation: item.geolocation
-      ? `(${item.geolocation.coordinates[0]}, ${item.geolocation.coordinates[1]})`
-      : "",
+    geolocation: item.geolocation ? item.geolocation.coordinates : "",
   }));
+};
+
+export const geoCoordinates = (data: MeteoriteType[]) => {
+  return {
+    geolocation: data.map((item) =>
+      item.geolocation ? item.geolocation.coordinates : []
+    ),
+  };
+};
+
+export const groupByYear = (data: MeteoriteType[]) => {
+  const years = data.map((item) =>
+    item.year ? new Date(item.year).getFullYear() : 0
+  );
+  const filteredYears = _.remove(years, function (number: number) {
+    return number.toString().length > 3;
+  });
+  const sortedYears = _.sortBy(filteredYears);
+  const yearsNoRepeat = _.uniq(sortedYears);
+  const yearData = _.countBy(sortedYears);
+  console.log(yearsNoRepeat);
+  return { count: yearData, years: yearsNoRepeat };
 };
 
 export const formattedMeteoriteData = async (
