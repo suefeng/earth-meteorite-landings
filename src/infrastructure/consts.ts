@@ -7,7 +7,7 @@ export const LINKS = [
   { name: "Favorites", href: "/favorites/earthling" },
 ];
 export const TITLE = "Earth Meteorite Landings";
-export const NASA_URL = "https://test.test"; //"https://data.nasa.gov/resource/y77d-th95.json";
+export const NASA_URL = "https://data.nasa.gov/resource/y77d-th95.json";
 export const FAVORITES_URL = (username: string) =>
   `http://localhost:3002/api/v1/favorites/${username}`;
 export const FAVORITES_MUTATION_URL = (
