@@ -58,13 +58,15 @@ Some key features that the client requested:
 
    <img width="653" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/9a91d10c-9be7-4110-ab83-06d1b3aba232">
    <img width="524" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/ed7dbab6-219e-4930-9a5a-f9ab5d347f12">
+
 4. Create the database by adding a new one to the connection called `meteorites`
-   
+
    <img width="448" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/2b070d9c-e230-4a85-a805-69ce9e42e5a1">
-   
+
 5. Connect to the database.
 
    <img width="415" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/71ae73a2-ccef-44e2-b700-741171553751">
+
 6. Import the gzipped database contents
 
    <img width="404" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/515fc271-d1aa-45f6-828a-33d805919611">
@@ -124,8 +126,6 @@ In both views you should be able to filter, search, and sort the data.
 
 <img width="345" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/c551be9c-db1d-4c38-bd0a-223383d35e6b">
 
-
-
 ## Instructions for build steps and deployment packaging.
 
 From the generated version of the Next.js install:
@@ -143,6 +143,8 @@ Check out their [Next.js deployment documentation](https://nextjs.org/docs/deplo
 - [ ] Provide another way to view data other than just in a table
 - [x] Improve table display, especially the Geolocation column
 - [ ] More mobile-friendly display
-- [ ] Another more visually appealing way to display data such as cards, geolocation on a map with tooltips or info showing when zoomed in more, a graph for representing the number of meteorites per year etc
+- [ ] Display as cards
+- [x] Display geocoordinates on a map with tooltips
+- [x] Display a graph for representing the number of meteorites per year
 - [ ] A better way to handle when the api is down such as refetching, and displaying a message to the user that the data is temporarily unavailable
 - [x] Darkmode enabled

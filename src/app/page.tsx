@@ -1,6 +1,6 @@
 import DataTable from "@/components/DataTable";
 import { formattedMeteoriteData } from "@/infrastructure/utilities/requests";
-import { NASA_URL, columns } from "@/infrastructure/consts";
+import { NASA_URL, columns, REQUEST_ERROR } from "@/infrastructure/consts";
 
 export default async function Home() {
   const url = NASA_URL;
@@ -10,7 +10,11 @@ export default async function Home() {
       "Content-Type": "application/json",
     },
   };
-  const rowsData = await formattedMeteoriteData(url, options, true);
+  const rowsData = await formattedMeteoriteData(url, options, true).catch(
+    (error) => {
+      return;
+    }
+  );
 
   return (
     <>
@@ -23,13 +27,15 @@ export default async function Home() {
         To save a meteorite to your favorites, click on a checkmark and click on
         "Save to favorites".
       </p>
-      {rowsData && (
+      {typeof rowsData === "object" ? (
         <DataTable
           rows={rowsData}
           columns={columns}
           userId="1"
           requestType="create"
         />
+      ) : (
+        <p>{REQUEST_ERROR}</p>
       )}
     </>
   );

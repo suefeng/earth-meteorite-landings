@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { groupByYear } from "@/infrastructure/utilities/requests";
-import { NASA_URL } from "@/infrastructure/consts";
+import { NASA_URL, REQUEST_ERROR } from "@/infrastructure/consts";
 import { DataChart } from "@/components/DataChart";
 
 export default function YearOverYear() {
@@ -46,13 +46,15 @@ export default function YearOverYear() {
 
   return (
     <div>
-      <h1>Year Over Year</h1>
-      {seriesData && (
+      <h2 className="text-2xl mb-4">Year Over Year</h2>
+      {seriesData ? (
         <DataChart
           seriesData={seriesData}
           xAxisData={xAxisData}
           xAxisScaleType="band"
         />
+      ) : (
+        <p>{REQUEST_ERROR}</p>
       )}
     </div>
   );

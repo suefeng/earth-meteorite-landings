@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, Suspense } from "react";
 import DataTable from "@/components/DataTable";
-import { FAVORITES_URL, columns } from "@/infrastructure/consts";
+import { FAVORITES_URL, columns, REQUEST_ERROR } from "@/infrastructure/consts";
 import { formattedData } from "@/infrastructure/utilities/requests";
 
 export default function Favorites() {
@@ -32,13 +32,15 @@ export default function Favorites() {
     <>
       <h2 className="text-2xl">Favorites</h2>
       <p className="my-4">Meteorite landings that you have saved.</p>
-      {rowsData && (
+      {rowsData ? (
         <DataTable
           rows={rowsData}
           columns={columns}
           userId="1"
           requestType="delete"
         />
+      ) : (
+        <p>{REQUEST_ERROR}</p>
       )}
     </>
   );
