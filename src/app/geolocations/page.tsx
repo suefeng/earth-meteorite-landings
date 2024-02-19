@@ -124,7 +124,7 @@ export default function Geocode() {
       }
 
       function formatCoordinate(coordinate: number[]) {
-        return `<table class="bg-white p-2 w-[300px]">
+        return `<table class="bg-white p-2 w-[300px] shadow-md">
           <tbody>
             ${meteoriteHtml(coordinate)}
             <tr>
@@ -182,14 +182,10 @@ export default function Geocode() {
     <div>
       <h2 className="text-2xl mb-4">Map View of Geolocations</h2>
       {message}
-      {coordinates && (
-        <>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-          <div id="map" className="map h-[800px] w-full">
-            <div id="popup"></div>
-          </div>
-        </>
-      )}
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+      <div id="map" className="map h-[800px] w-full">
+        <div id="popup"></div>
+      </div>
     </div>
   );
 }
