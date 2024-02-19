@@ -114,17 +114,26 @@ Navigate to http://localhost:3002
 
 If everything is working, you should see something like this:
 
-<img width="1347" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/08617d9e-455d-483b-a9b9-e943689cba71">
+<img width="1341" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/00160816-0aa7-4060-bd1a-db957d224505">
+
 
 Navigate to the Favorites page and you should see something like this if it's working:
 
-<img width="1295" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/d7e17b26-9d0b-48f6-bef9-678afd0a8736">
+<img width="1316" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/4d9c4c55-2a2f-4fa9-8f2b-b4f12d7105e8">
 
 In both views you should be able to filter, search, and sort the data.
 
 <img width="553" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/33af8e44-c998-4f01-a730-6a59d76d6ce6">
 
 <img width="345" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/c551be9c-db1d-4c38-bd0a-223383d35e6b">
+
+Geocoordinates on a map
+
+<img width="1300" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/98c333be-5831-4722-803b-a28b7ab8d74b">
+
+Meteorites by year
+
+<img width="1280" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/5c187bbd-e136-47e9-b8ff-c9cf21b9d390">
 
 ## Instructions for build steps and deployment packaging.
 
