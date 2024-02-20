@@ -12,6 +12,80 @@ import {
 } from "@/infrastructure/utilities/requests";
 import { MeteoriteFormattedType } from "@/domain/entities/meteorite";
 
+function meteoriteHtml(
+  geocoordinates: number[],
+  meteoriteData: MeteoriteFormattedType[]
+) {
+  if (meteoriteData) {
+    const meteorite = meteoriteData.find(
+      (item) =>
+        Number(item.geolocation[0]) === geocoordinates[0] &&
+        Number(item.geolocation[1]) === geocoordinates[1]
+    );
+    if (meteorite) {
+      return `
+      <tr><th class="px-2 text-right font-bold">Name:</th><td>${meteorite.name}</td></tr>
+      <tr><th class="px-2 text-right font-bold">Year:</th><td>${meteorite.year}</td></tr>
+      <tr><th class="px-2 text-right font-bold">Mass:</th><td>${meteorite.mass}</td></tr>
+      <tr><th class="px-2 text-right font-bold">Rec Class:</th><td>${meteorite.recclass}</td></tr>
+      <tr><th class="px-2 text-right font-bold">Fall:</th><td>${meteorite.fall}</td></tr>
+      <tr><th class="px-2 text-right font-bold">Rec Lat:</th><td>${meteorite.reclat}</td></tr>
+      <tr><th class="px-2 text-right font-bold">Rec Long:</th><td>${meteorite.reclong}</td></tr>`;
+    } else {
+      return "";
+    }
+  }
+}
+
+function formatCoordinate(
+  coordinate: number[],
+  meteoriteData: MeteoriteFormattedType[]
+) {
+  return `<table class="bg-white p-2 w-[300px] shadow-md rounded-lg">
+    <tbody>
+      ${meteoriteHtml(coordinate, meteoriteData)}
+      <tr>
+        <th class="px-2 text-right font-bold">lon:</th>
+        <td>${coordinate[0].toFixed(2)}</td>
+      </tr>
+      <tr>
+        <th class="px-2 text-right font-bold">lat:</th>
+        <td>${coordinate[1].toFixed(2)}</td>
+      </tr>
+    </tbody>
+  </table>`;
+}
+
+function fetchData(setMessage: React.Dispatch<React.SetStateAction<string>>) {
+  const url = NASA_URL;
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  fetch(url, options)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const formattedCoordinatesData = geoCoordinates(data);
+      localStorage.setItem(
+        "coordinates",
+        JSON.stringify(formattedCoordinatesData)
+      );
+
+      const formattedMeteoriteData = formattedData(data);
+      localStorage.setItem(
+        "meteoriteData",
+        JSON.stringify(formattedMeteoriteData)
+      );
+    })
+    .catch((error) => {
+      setMessage(REQUEST_ERROR);
+    });
+}
+
 export default function Geocode() {
   const [message, setMessage] = useState("");
   const [coordinates, setCoordinates] = useState<any>();
@@ -22,33 +96,7 @@ export default function Geocode() {
     const place = [-206.42, 37.19];
 
     if (!localStorage.getItem("coordinates")) {
-      const url = NASA_URL;
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      fetch(url, options)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          const formattedCoordinatesData = geoCoordinates(data);
-          localStorage.setItem(
-            "coordinates",
-            JSON.stringify(formattedCoordinatesData)
-          );
-
-          const formattedMeteoriteData = formattedData(data);
-          localStorage.setItem(
-            "meteoriteData",
-            JSON.stringify(formattedMeteoriteData)
-          );
-        })
-        .catch((error) => {
-          setMessage(REQUEST_ERROR);
-        });
+      fetchData(setMessage);
     }
 
     const stringCoordinates = localStorage.getItem("coordinates");
@@ -86,58 +134,19 @@ export default function Geocode() {
             }),
             style: {
               "circle-radius": 3,
-              "circle-fill-color": "red",
+              "circle-fill-color": "rgb(59, 130, 246)",
             },
           }),
         ],
       });
 
-      const element = document.getElementById("popup");
+      const element = document.getElementById("popup") || undefined;
 
       const popup = new Overlay({
         element: element,
         stopEvent: false,
       });
       map.addOverlay(popup);
-
-      function meteoriteHtml(geocoordinates) {
-        if (meteoriteData) {
-          const meteorite = meteoriteData.find(
-            (item: MeteoriteFormattedType) =>
-              item.geolocation[0] === geocoordinates[0] &&
-              item.geolocation[1] === geocoordinates[1]
-          );
-          if (meteorite) {
-            return `
-            <tr><th class="px-2 text-right font-bold">Name:</th><td>${meteorite.name}</td></tr>
-            <tr><th class="px-2 text-right font-bold">Year:</th><td>${meteorite.year}</td></tr>
-            <tr><th class="px-2 text-right font-bold">Mass:</th><td>${meteorite.mass}</td></tr>
-            <tr><th class="px-2 text-right font-bold">Rec Class:</th><td>${meteorite.recclass}</td></tr>
-            <tr><th class="px-2 text-right font-bold">Fall:</th><td>${meteorite.fall}</td></tr>
-            <tr><th class="px-2 text-right font-bold">Rec Lat:</th><td>${meteorite.reclat}</td></tr>
-            <tr><th class="px-2 text-right font-bold">Rec Long:</th><td>${meteorite.reclong}</td></tr>
-          </tr>`;
-          } else {
-            return "";
-          }
-        }
-      }
-
-      function formatCoordinate(coordinate: number[]) {
-        return `<table class="bg-white p-2 w-[300px] shadow-md">
-          <tbody>
-            ${meteoriteHtml(coordinate)}
-            <tr>
-              <th class="px-2 text-right font-bold">lon:</th>
-              <td>${coordinate[0].toFixed(2)}</td>
-            </tr>
-            <tr>
-              <th class="px-2 text-right font-bold">lat:</th>
-              <td>${coordinate[1].toFixed(2)}</td>
-            </tr>
-          </tbody>
-        </table>`;
-      }
 
       map.on("moveend", function () {
         const view = map.getView();
@@ -162,7 +171,7 @@ export default function Geocode() {
 
         popover = new bootstrap.Popover(element, {
           container: element.parentElement,
-          content: formatCoordinate(coordinate),
+          content: formatCoordinate(coordinate, meteoriteData),
           html: true,
           offset: [0, 20],
           placement: "top",
