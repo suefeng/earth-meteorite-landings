@@ -129,7 +129,7 @@ In both views you should be able to filter, search, and sort the data.
 
 Geocoordinates on a map
 
-<img width="1300" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/98c333be-5831-4722-803b-a28b7ab8d74b">
+<img width="1313" alt="image" src="https://github.com/suefeng/earth-meteorite-landings/assets/627540/73d8848f-31e6-4722-a051-2b38b664a616">
 
 Meteorites by year
 
