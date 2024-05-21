@@ -14,9 +14,6 @@ Some key features that the client requested:
    - table view with each field in its own column
    - data sortable by column
    - a way to filter the data
-
-   ** UPDATE **
-
    - added caching for the main page so data doesn't need to be refetched from the API as often.
 
 2. The ability to search for individual meteorites by Name and/or ID.
@@ -28,16 +25,7 @@ Some key features that the client requested:
    - Ran out of time for this section to finish, but there's a favorites list through `/api/v1/favorites/earthling` that gets the dumy data from the database
    - Has `users` table with one user
    - Has `meteorite_favorites` with favorites of that user
-
-   _With more time:_
-
-   - Store new `favorites` in the database `meteorite_favorites`
-     - Store `id` of the meteorite, `id` of the user
-   - Create a way to signup and store new users
-
-   **UPDATE**
-
-   - Creating and deleting favorites works now
+   - Creating and deleting favorites
    - Would like a more user friendly way to display favorites in the future like a star or heart and filled in if it's favorited
    - Updated table naming to correct spelling of "meteorite" wherever "meteorite" was used
 
